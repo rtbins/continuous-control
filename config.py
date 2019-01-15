@@ -11,16 +11,10 @@ class Config:
         self.states = None
         self.state_size = None
         self.action_size = None
-        #self.learning_rate = 0.001
         self.lr_actor = 1e-4
         self.lr_critic = 3e-4
         self.batch_size = 512
 		# memory buffer size
         self.buffer_size = int(1e6)
-        self.gamma = 0.999
+        self.gamma = 0.99
         self.update_every = 4
-        self.gradient_clip = None
-        self.entropy_weight = 0.01
-        self.eps_start = 1.0
-        self.eps_end = 0.001
-        self.eps_decay = 0.995
