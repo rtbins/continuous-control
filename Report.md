@@ -2,8 +2,13 @@
 
 ## Learning algorithm
 
-DDPG agent algorithm with random sample replay buffer is used for project.  
-The architecture comprises of two networks
+DDPG agent algorithm with random sample replay buffer is used for the project[2].  
+DDPG is a policy gradient algorithm that uses a stochastic behavior policy for exploration but estimates a deterministic target policy. Policy gradient algorithms utilize a form of policy iteration: they evaluate the policy, and then follow the policy gradient to maximize performance. DDPG is off-policy and uses a deterministic target policy, which allows for the use of the Deterministic Policy Gradient. DDPG is an actor-critic algorithm, it uses two neural networks, one for the actor and one for the critic. These networks compute action predictions for the current state and generate a temporal-difference (TD) error signal each time step. The input of the actor network is the current state, and the output is a single real value representing an action chosen from a continuous action space. The critic’s output is the estimated Q-value of the current state and of the action given by the actor. The deterministic policy gradient provides the update rule for the weights of the actor network. The critic network is updated from the gradients obtained from the TD error signal [1].  
+
+![DDPG algorithm](ddpg_algo.png)
+
+
+For our implementation we have used the following architecture:
 
 * Actor: 512 -> 256 (with dropout=0.2, while training)
 * Critic: 512 -> 256 -> 128 (with dropout=0.2, while training)
@@ -42,3 +47,8 @@ Following optimizations can be applied to the project:
 - Estimate hyperparameters by training an agent
 - Experiment with Generalized Advantage Estimation
 - Experiment with A2c and A3C
+
+
+### Refrences
+1. [Deep Deterministic Policy Gradients in TensorFlow](https://pemami4911.github.io/blog/2016/08/21/ddpg-rl.html)
+2. [Continuous control with deep reinforcement learning](https://arxiv.org/abs/1509.02971)
